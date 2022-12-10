@@ -1,5 +1,6 @@
 const hashtagModel = require("./src/models/hashtag.model");
 const postModel = require("./src/models/post.model");
+const userModel = require("./src/models/user.model");
 require('./src/datasources/mogodb.datasource');
 
 async function insertHashTags() {
@@ -26,10 +27,21 @@ async function insertPosts(tags) {
     ]);
 }
 
+async function insertUser() {
+    return await userModel.create({
+        username: 'Demo',
+        email: 'example@gmail.com',
+        achievement: 5,
+        dateCount: 21,
+    });
+}
+
 async function main() {
     console.log('Migrate Start');
-    const hashtags = await insertHashTags()
+    const hashtags = await insertHashTags();
+    const user = await insertUser();
     await insertPosts(hashtags.map(tag => tag.name));
+    console.log('UserId', user._id.toString());
     console.log('Migrate Success');
     process.exit();
 }
