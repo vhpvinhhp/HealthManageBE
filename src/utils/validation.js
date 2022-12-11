@@ -20,3 +20,8 @@ exports.getExerciseValidation = [
     check('start_at','start_at not empty!').notEmpty(),
     check('end_at','end_at not empty!').notEmpty()
 ];
+
+exports.getBodyValidation = [
+    check('start_at','start_at not empty!').notEmpty(),
+    check('end_at','end_at not empty!').notEmpty()
+];
