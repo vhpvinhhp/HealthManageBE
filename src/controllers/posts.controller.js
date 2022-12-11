@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator");
+const { LIMIT_DEFAULT } = require("../configs/app");
 const postModel = require("../models/post.model");
 
 exports.getPosts = async (req, res) => {
@@ -6,7 +7,7 @@ exports.getPosts = async (req, res) => {
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { limit = 6, page = 0} = req.query
+    const { limit = LIMIT_DEFAULT, page = 0} = req.query
     let query = { deleted : false }
     const option = {
         limit,
