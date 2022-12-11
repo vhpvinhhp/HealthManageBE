@@ -1,9 +1,9 @@
 const express = require('express');
 const { getPosts } = require('../controllers/Posts.Controller');
-const { getMealHistory } = require('../controllers/userHistory.controller');
+const { getMealHistory, getDiaryHistory } = require('../controllers/userHistory.controller');
 const { getProfile } = require('../controllers/users.controller');
 const { catchErrors } = require('../handlers/errorHandlers');
-const { getPostsValidation, getMealHistoryValidation } = require('../utils/validation');
+const { getPostsValidation, getMealHistoryValidation, getDiaryValidation } = require('../utils/validation');
 const verifyToken = require('../utils/verifyToken');
 
 const router = express.Router();
@@ -15,6 +15,7 @@ router.get('/healthy', (req, res) => {
 
 router.get('/user', verifyToken, catchErrors(getProfile));
 router.get('/user/history/meal', verifyToken, getMealHistoryValidation, catchErrors(getMealHistory));
+router.get('/user/history/diary', verifyToken, getDiaryValidation, catchErrors(getDiaryHistory));
 
 router.get('/posts', getPostsValidation, catchErrors(getPosts));
 

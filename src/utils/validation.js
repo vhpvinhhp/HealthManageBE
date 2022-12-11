@@ -10,3 +10,8 @@ exports.getMealHistoryValidation = [
     check('limit','limit invalid!').optional().isInt(),
     check('page','page invalid!').optional().isInt()
 ];
+
+exports.getDiaryValidation = [
+    check('limit','limit invalid!').optional().isInt(),
+    check('page','page invalid!').optional().isInt()
+];
