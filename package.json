@@ -4,7 +4,10 @@
   "description": "Build API for the Health management website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "node ./migrateSchema.js",
+    "start": "node .",
+    "demo": "npm run migrate && npm run start"
   },
   "repository": {
     "type": "git",

@@ -5,7 +5,7 @@ const PostsSchema = new mongoose.Schema({
     title:  { type : String, require: true },
     image:  { type : String, require: true },
     hashtags:  [{ type: String }],
-    deleted: { type : String, default: false },
+    deleted: { type : Boolean, default: false },
     updatedAt: { type : Date, default: new Date() },
     createdAt: { type : Date, default: new Date() },
 },

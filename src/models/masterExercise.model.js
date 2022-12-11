@@ -3,7 +3,7 @@ const mongoosePaginate = require('mongoose-paginate-v2');
 
 const MasterExerciseSchema = new mongoose.Schema({
     name:  { type : String, require: true },
-    deleted: { type : String, default: false },
+    deleted: { type : Boolean, default: false },
     updatedAt: { type : Date, default: new Date() },
     createdAt: { type : Date, default: new Date() },
 },

@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema({
     email: { type : String, require: true },
     achievement: { type : Number, default: 0 },
     dateCount: { type : Number, default: 0 },
-    deleted: { type : String, default: false },
+    deleted: { type : Boolean, default: false },
     updatedAt: { type : Date, default: new Date() },
     createdAt: { type : Date, default: new Date() },
 },

@@ -5,7 +5,7 @@ const DiaryHistorySchema = new mongoose.Schema({
     userId:  { type : String, require: true },
     title:  { type : String, require: true },
     content:  { type : String, require: true },
-    deleted: { type : String, default: false },
+    deleted: { type : Boolean, default: false },
     updatedAt: { type : Date, default: new Date() },
     createdAt: { type : Date, default: new Date() },
 },
